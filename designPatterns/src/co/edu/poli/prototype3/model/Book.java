@@ -13,6 +13,7 @@ public class Book extends Item {
 	private String title;
 	
 	private int[] numPages;
+
 	
 	public Book(String iSBN, String author, int year, String pubisher, String title, int[] numPages) {
 		super();
@@ -23,6 +24,16 @@ public class Book extends Item {
 		this.title = title;
 		this.numPages = numPages;
 	}
+	
+	private Book (Book b) {
+		this.ISBN=b.ISBN;
+		this.author=b.author;
+		this.year=b.year;
+		this.publisher=b.publisher;
+		this.title=b.title;
+		this.numPages=b.numPages;
+	}
+	
 
 	public String getISBN() {
 		return ISBN;
@@ -76,6 +87,11 @@ public class Book extends Item {
 	public String toString() {
 		return "Book [ISBN=" + ISBN + ", author=" + author + ", year=" + year + ", publisher=" + publisher
 				+ ", title=" + title + ", numPages=" + numPages.length + "]";
+	}
+	
+	@Override 
+	public Object cloneObj() {
+		return new Book(this);
 	}
 
 	@Override

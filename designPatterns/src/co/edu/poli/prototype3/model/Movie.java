@@ -26,6 +26,16 @@ public class Movie extends Item {
 		this.country = country;
 		this.setNumFrames(numFrames);
 	}
+	
+	private Movie(Movie m) {
+		this.movieid = m.movieid;
+		this.director = m.director;
+		this.year = m.year;
+		this.producer = m.producer;
+		this.title = m.title;
+		this.country = m.country;
+		this.setNumFrames(m.getNumFrames());
+	}
 
 	public String getMovieid() {
 		return movieid;
@@ -80,7 +90,12 @@ public class Movie extends Item {
 		return "Movie [movieid=" + movieid + ", author=" + director + ", yearPublish=" + year + ", producer=" + producer
 				+ ", title=" + title + ", country=" + country + ", numFrames="+ numFrames.length +"]";
 	}
-
+	
+	@Override
+	public Object cloneObj() {
+		return new Movie(this);
+	}
+	
 	public int[] getNumFrames() {
 		return numFrames;
 	}

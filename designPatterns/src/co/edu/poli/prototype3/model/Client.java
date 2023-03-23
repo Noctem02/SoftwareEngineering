@@ -3,7 +3,7 @@ package co.edu.poli.prototype3.model;
 /**
  * Design Patterns: Prototype with Prototype Registry
  * 
- * @author wsoto
+ * @author Nata
  * @since 26.10.21
  */
 public class Client {
@@ -12,14 +12,15 @@ public class Client {
 
 		ItemStore ps = new ItemStore();
 
-		Book b = new Book("ABC111", "Gabriel García Marquéz", 2010, "Oveja Negra", "La Hojarasca", new int[120]);
+		Book b = new Book("ABC111", "Gabriel Garcï¿½a Marquï¿½z", 2010, "Oveja Negra", "La Hojarasca", new int[120]);
 		System.out.println(b);
 		ps.addProduct(b.getClass().getSimpleName(), b);
+		
 
 		Movie m = new Movie("98765", "Martin Campbell", 2006, "MGM", "Casino Royale", "USA", new int[3358]);
 		System.out.println(m);
 		ps.addProduct(m.getClass().getSimpleName(), m);
-
+		
 		Book cloneBook1 = (Book) ps.getProduct("Book");
 		cloneBook1.setISBN("XYZ999");
 		cloneBook1.setYear(2021);
@@ -29,6 +30,9 @@ public class Client {
 		cloneMovie1.setMovieid("56743");
 		cloneMovie1.setTitle("The Pink Panther");
 		cloneMovie1.setDirector("Shawn Levy");
+		
+		
+		
 		System.out.println(cloneMovie1);
 
 	}

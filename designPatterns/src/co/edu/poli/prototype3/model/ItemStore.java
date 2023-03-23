@@ -16,13 +16,8 @@ public class ItemStore {
 	}
 
 	public Item getProduct (String s) {
-		try {
-			return (Item) productMap.get(s).clone();
-		} catch (CloneNotSupportedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+		return (Item) productMap.get(s).cloneObj();
+		
 	}
 
 }
